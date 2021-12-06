@@ -12,6 +12,9 @@ namespace day6
             Part2(args);
         }
 
+        //
+        // Naive way of doing it.  Don't do it like this.
+        //
         static void Part1(string[] args) {
             var strings = File.ReadAllLines(args[0])[0].Split(',', StringSplitOptions.RemoveEmptyEntries);
             List<int> start = new List<int>();
@@ -53,6 +56,11 @@ namespace day6
             }
 
         }
+
+        //
+        // This part 2 is just a more efficient, O(days) version of the above
+        // exponential algorithm.
+        //
         public static void Part2(string[] args) {
             var strings = File.ReadAllLines(args[0])[0].Split(',', StringSplitOptions.RemoveEmptyEntries);
 
