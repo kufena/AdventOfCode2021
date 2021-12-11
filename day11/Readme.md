@@ -371,6 +371,6 @@ If you can calculate the exact moments when the octopuses will all flash simulta
 
 Your puzzle answer was 290.
 
-** (TO GET THE ANSWER KEEP RUNNING WITH INCREASED STEPS UNTIL YOU GET A NON -1 VALUE FOR FIRST FULL FLASH) **");
+** (TO GET THE ANSWER KEEP RUNNING WITH INCREASED STEPS UNTIL YOU GET A NON -1 VALUE FOR FIRST FULL FLASH) **
 
 Both parts of this puzzle are complete! They provide two gold stars: **
