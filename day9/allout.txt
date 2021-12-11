@@ -1,0 +1,476 @@
+Point 0 11 is a low.
+Point 0 11 has a basin size of 2
+Point 0 14 is a low.
+Point 0 14 has a basin size of 18
+Point 0 38 is a low.
+Point 0 38 has a basin size of 24
+Point 0 43 is a low.
+Point 0 43 has a basin size of 2
+Point 0 86 is a low.
+Point 0 86 has a basin size of 11
+Point 1 65 is a low.
+Point 1 65 has a basin size of 57
+Point 1 80 is a low.
+Point 1 80 has a basin size of 21
+Point 1 94 is a low.
+Point 1 94 has a basin size of 33
+Point 2 4 is a low.
+Point 2 4 has a basin size of 46
+Point 2 50 is a low.
+Point 2 50 has a basin size of 63
+Point 2 72 is a low.
+Point 2 72 has a basin size of 11
+Point 3 27 is a low.
+Point 3 27 has a basin size of 19
+Point 4 45 is a low.
+Point 4 45 has a basin size of 3
+Point 4 58 is a low.
+Point 4 58 has a basin size of 19
+Point 5 8 is a low.
+Point 5 8 has a basin size of 15
+Point 5 21 is a low.
+Point 5 21 has a basin size of 78
+Point 5 33 is a low.
+Point 5 33 has a basin size of 8
+Point 6 69 is a low.
+Point 6 69 has a basin size of 6
+Point 6 84 is a low.
+Point 6 84 has a basin size of 32
+Point 6 98 is a low.
+Point 6 98 has a basin size of 13
+Point 7 37 is a low.
+Point 7 37 has a basin size of 2
+Point 7 90 is a low.
+Point 7 90 has a basin size of 49
+Point 8 29 is a low.
+Point 8 29 has a basin size of 40
+Point 8 53 is a low.
+Point 8 53 has a basin size of 13
+Point 8 77 is a low.
+Point 8 77 has a basin size of 87
+Point 9 15 is a low.
+Point 9 15 has a basin size of 15
+Point 9 48 is a low.
+Point 9 48 has a basin size of 6
+Point 9 63 is a low.
+Point 9 63 has a basin size of 65
+Point 11 1 is a low.
+Point 11 1 has a basin size of 7
+Point 11 33 is a low.
+Point 11 33 has a basin size of 18
+Point 11 41 is a low.
+Point 11 41 has a basin size of 88
+Point 11 87 is a low.
+Point 11 87 has a basin size of 2
+Point 12 7 is a low.
+Point 12 7 has a basin size of 51
+Point 12 57 is a low.
+Point 12 57 has a basin size of 4
+Point 12 99 is a low.
+Point 12 99 has a basin size of 7
+Point 13 51 is a low.
+Point 13 51 has a basin size of 21
+Point 13 92 is a low.
+Point 13 92 has a basin size of 65
+Point 14 23 is a low.
+Point 14 23 has a basin size of 10
+Point 14 46 is a low.
+Point 14 46 has a basin size of 22
+Point 15 17 is a low.
+Point 15 17 has a basin size of 55
+Point 15 65 is a low.
+Point 15 65 has a basin size of 38
+Point 15 74 is a low.
+Point 15 74 has a basin size of 44
+Point 15 81 is a low.
+Point 15 81 has a basin size of 44
+Point 17 4 is a low.
+Point 17 4 has a basin size of 44
+Point 17 38 is a low.
+Point 17 38 has a basin size of 3
+Point 18 30 is a low.
+Point 18 30 has a basin size of 75
+Point 18 55 is a low.
+Point 18 55 has a basin size of 47
+Point 18 99 is a low.
+Point 18 99 has a basin size of 22
+Point 19 47 is a low.
+Point 19 47 has a basin size of 10
+Point 19 88 is a low.
+Point 19 88 has a basin size of 28
+Point 20 70 is a low.
+Point 20 70 has a basin size of 27
+Point 21 10 is a low.
+Point 21 10 has a basin size of 29
+Point 21 40 is a low.
+Point 21 40 has a basin size of 39
+Point 21 80 is a low.
+Point 21 80 has a basin size of 30
+Point 22 19 is a low.
+Point 22 19 has a basin size of 68
+Point 22 27 is a low.
+Point 22 27 has a basin size of 10
+Point 23 45 is a low.
+Point 23 45 has a basin size of 3
+Point 23 75 is a low.
+Point 23 75 has a basin size of 3
+Point 24 95 is a low.
+Point 24 95 has a basin size of 17
+Point 25 52 is a low.
+Point 25 52 has a basin size of 83
+Point 26 61 is a low.
+Point 26 61 has a basin size of 3
+Point 26 64 is a low.
+Point 26 64 has a basin size of 57
+Point 27 1 is a low.
+Point 27 1 has a basin size of 42
+Point 27 40 is a low.
+Point 27 40 has a basin size of 35
+Point 27 84 is a low.
+Point 27 84 has a basin size of 35
+Point 28 10 is a low.
+Point 28 10 has a basin size of 69
+Point 28 28 is a low.
+Point 28 28 has a basin size of 51
+Point 28 98 is a low.
+Point 28 98 has a basin size of 32
+Point 29 72 is a low.
+Point 29 72 has a basin size of 56
+Point 29 79 is a low.
+Point 29 79 has a basin size of 10
+Point 30 23 is a low.
+Point 30 23 has a basin size of 37
+Point 30 89 is a low.
+Point 30 89 has a basin size of 64
+Point 31 15 is a low.
+Point 31 15 has a basin size of 3
+Point 31 40 is a low.
+Point 31 40 has a basin size of 15
+Point 31 49 is a low.
+Point 31 49 has a basin size of 42
+Point 31 82 is a low.
+Point 31 82 has a basin size of 4
+Point 32 36 is a low.
+Point 32 36 has a basin size of 33
+Point 33 7 is a low.
+Point 33 7 has a basin size of 3
+Point 33 31 is a low.
+Point 33 31 has a basin size of 9
+Point 34 10 is a low.
+Point 34 10 has a basin size of 32
+Point 34 59 is a low.
+Point 34 59 has a basin size of 81
+Point 34 74 is a low.
+Point 34 74 has a basin size of 3
+Point 34 84 is a low.
+Point 34 84 has a basin size of 3
+Point 34 99 is a low.
+Point 34 99 has a basin size of 4
+Point 36 66 is a low.
+Point 36 66 has a basin size of 35
+Point 36 93 is a low.
+Point 36 93 has a basin size of 14
+Point 37 28 is a low.
+Point 37 28 has a basin size of 52
+Point 37 36 is a low.
+Point 37 36 has a basin size of 48
+Point 37 98 is a low.
+Point 37 98 has a basin size of 6
+Point 38 2 is a low.
+Point 38 2 has a basin size of 72
+Point 38 54 is a low.
+Point 38 54 has a basin size of 17
+Point 38 79 is a low.
+Point 38 79 has a basin size of 87
+Point 39 8 is a low.
+Point 39 8 has a basin size of 2
+Point 39 18 is a low.
+Point 39 18 has a basin size of 26
+Point 39 42 is a low.
+Point 39 42 has a basin size of 28
+Point 39 72 is a low.
+Point 39 72 has a basin size of 9
+Point 40 12 is a low.
+Point 40 12 has a basin size of 7
+Point 40 95 is a low.
+Point 40 95 has a basin size of 21
+Point 40 98 is a low.
+Point 40 98 has a basin size of 19
+Point 41 47 is a low.
+Point 41 47 has a basin size of 5
+Point 42 32 is a low.
+Point 42 32 has a basin size of 12
+Point 42 63 is a low.
+Point 42 63 has a basin size of 67
+Point 42 87 is a low.
+Point 42 87 has a basin size of 25
+Point 43 6 is a low.
+Point 43 6 has a basin size of 28
+Point 43 24 is a low.
+Point 43 24 has a basin size of 9
+Point 44 16 is a low.
+Point 44 16 has a basin size of 24
+Point 45 41 is a low.
+Point 45 41 has a basin size of 61
+Point 45 52 is a low.
+Point 45 52 has a basin size of 70
+Point 45 76 is a low.
+Point 45 76 has a basin size of 8
+Point 45 90 is a low.
+Point 45 90 has a basin size of 22
+Point 46 69 is a low.
+Point 46 69 has a basin size of 47
+Point 47 21 is a low.
+Point 47 21 has a basin size of 12
+Point 47 35 is a low.
+Point 47 35 has a basin size of 9
+Point 47 83 is a low.
+Point 47 83 has a basin size of 68
+Point 47 93 is a low.
+Point 47 93 has a basin size of 29
+Point 48 28 is a low.
+Point 48 28 has a basin size of 59
+Point 49 1 is a low.
+Point 49 1 has a basin size of 29
+Point 50 12 is a low.
+Point 50 12 has a basin size of 77
+Point 50 56 is a low.
+Point 50 56 has a basin size of 40
+Point 51 74 is a low.
+Point 51 74 has a basin size of 25
+Point 53 6 is a low.
+Point 53 6 has a basin size of 4
+Point 53 38 is a low.
+Point 53 38 has a basin size of 50
+Point 53 47 is a low.
+Point 53 47 has a basin size of 54
+Point 53 63 is a low.
+Point 53 63 has a basin size of 42
+Point 53 69 is a low.
+Point 53 69 has a basin size of 11
+Point 53 88 is a low.
+Point 53 88 has a basin size of 35
+Point 54 94 is a low.
+Point 54 94 has a basin size of 17
+Point 54 99 is a low.
+Point 54 99 has a basin size of 6
+Point 55 24 is a low.
+Point 55 24 has a basin size of 65
+Point 55 81 is a low.
+Point 55 81 has a basin size of 11
+Point 57 1 is a low.
+Point 57 1 has a basin size of 25
+Point 57 10 is a low.
+Point 57 10 has a basin size of 67
+Point 57 33 is a low.
+Point 57 33 has a basin size of 88
+Point 57 98 is a low.
+Point 57 98 has a basin size of 21
+Point 58 4 is a low.
+Point 58 4 has a basin size of 2
+Point 58 18 is a low.
+Point 58 18 has a basin size of 10
+Point 58 43 is a low.
+Point 58 43 has a basin size of 2
+Point 58 52 is a low.
+Point 58 52 has a basin size of 12
+Point 58 76 is a low.
+Point 58 76 has a basin size of 34
+Point 59 60 is a low.
+Point 59 60 has a basin size of 51
+Point 59 94 is a low.
+Point 59 94 has a basin size of 2
+Point 60 45 is a low.
+Point 60 45 has a basin size of 4
+Point 61 15 is a low.
+Point 61 15 has a basin size of 21
+Point 61 26 is a low.
+Point 61 26 has a basin size of 18
+Point 61 68 is a low.
+Point 61 68 has a basin size of 44
+Point 61 88 is a low.
+Point 61 88 has a basin size of 85
+Point 62 39 is a low.
+Point 62 39 has a basin size of 35
+Point 63 48 is a low.
+Point 63 48 has a basin size of 18
+Point 64 81 is a low.
+Point 64 81 has a basin size of 51
+Point 65 4 is a low.
+Point 65 4 has a basin size of 64
+Point 66 55 is a low.
+Point 66 55 has a basin size of 80
+Point 66 60 is a low.
+Point 66 60 has a basin size of 2
+Point 66 63 is a low.
+Point 66 63 has a basin size of 9
+Point 66 73 is a low.
+Point 66 73 has a basin size of 79
+Point 66 92 is a low.
+Point 66 92 has a basin size of 32
+Point 67 30 is a low.
+Point 67 30 has a basin size of 73
+Point 67 43 is a low.
+Point 67 43 has a basin size of 10
+Point 68 13 is a low.
+Point 68 13 has a basin size of 70
+Point 68 20 is a low.
+Point 68 20 has a basin size of 52
+Point 68 47 is a low.
+Point 68 47 has a basin size of 3
+Point 69 37 is a low.
+Point 69 37 has a basin size of 13
+Point 69 83 is a low.
+Point 69 83 has a basin size of 2
+Point 69 98 is a low.
+Point 69 98 has a basin size of 6
+Point 70 69 is a low.
+Point 70 69 has a basin size of 3
+Point 71 44 is a low.
+Point 71 44 has a basin size of 36
+Point 71 50 is a low.
+Point 71 50 has a basin size of 5
+Point 71 63 is a low.
+Point 71 63 has a basin size of 41
+Point 72 78 is a low.
+Point 72 78 has a basin size of 31
+Point 72 88 is a low.
+Point 72 88 has a basin size of 66
+Point 73 0 is a low.
+Point 73 0 has a basin size of 14
+Point 73 7 is a low.
+Point 73 7 has a basin size of 42
+Point 73 21 is a low.
+Point 73 21 has a basin size of 3
+Point 73 58 is a low.
+Point 73 58 has a basin size of 3
+Point 73 74 is a low.
+Point 73 74 has a basin size of 12
+Point 73 95 is a low.
+Point 73 95 has a basin size of 9
+Point 74 33 is a low.
+Point 74 33 has a basin size of 24
+Point 74 68 is a low.
+Point 74 68 has a basin size of 25
+Point 76 49 is a low.
+Point 76 49 has a basin size of 32
+Point 76 75 is a low.
+Point 76 75 has a basin size of 10
+Point 77 11 is a low.
+Point 77 11 has a basin size of 7
+Point 77 26 is a low.
+Point 77 26 has a basin size of 72
+Point 77 64 is a low.
+Point 77 64 has a basin size of 2
+Point 77 99 is a low.
+Point 77 99 has a basin size of 46
+Point 78 34 is a low.
+Point 78 34 has a basin size of 8
+Point 78 36 is a low.
+Point 78 36 has a basin size of 2
+Point 78 43 is a low.
+Point 78 43 has a basin size of 31
+Point 78 58 is a low.
+Point 78 58 has a basin size of 37
+Point 79 4 is a low.
+Point 79 4 has a basin size of 5
+Point 79 69 is a low.
+Point 79 69 has a basin size of 9
+Point 79 93 is a low.
+Point 79 93 has a basin size of 31
+Point 80 6 is a low.
+Point 80 6 has a basin size of 3
+Point 80 17 is a low.
+Point 80 17 has a basin size of 81
+Point 80 59 is a low.
+Point 80 59 has a basin size of 5
+Point 80 66 is a low.
+Point 80 66 has a basin size of 29
+Point 80 84 is a low.
+Point 80 84 has a basin size of 39
+Point 81 10 is a low.
+Point 81 10 has a basin size of 11
+Point 82 49 is a low.
+Point 82 49 has a basin size of 49
+Point 83 78 is a low.
+Point 83 78 has a basin size of 89
+Point 85 0 is a low.
+Point 85 0 has a basin size of 35
+Point 85 25 is a low.
+Point 85 25 has a basin size of 49
+Point 85 33 is a low.
+Point 85 33 has a basin size of 4
+Point 85 38 is a low.
+Point 85 38 has a basin size of 76
+Point 85 91 is a low.
+Point 85 91 has a basin size of 4
+Point 86 10 is a low.
+Point 86 10 has a basin size of 21
+Point 86 59 is a low.
+Point 86 59 has a basin size of 69
+Point 86 96 is a low.
+Point 86 96 has a basin size of 25
+Point 87 5 is a low.
+Point 87 5 has a basin size of 3
+Point 87 91 is a low.
+Point 87 91 has a basin size of 9
+Point 88 69 is a low.
+Point 88 69 has a basin size of 66
+Point 88 83 is a low.
+Point 88 83 has a basin size of 12
+Point 89 52 is a low.
+Point 89 52 has a basin size of 13
+Point 90 20 is a low.
+Point 90 20 has a basin size of 28
+Point 90 39 is a low.
+Point 90 39 has a basin size of 5
+Point 90 44 is a low.
+Point 90 44 has a basin size of 55
+Point 90 76 is a low.
+Point 90 76 has a basin size of 2
+Point 90 81 is a low.
+Point 90 81 has a basin size of 20
+Point 90 99 is a low.
+Point 90 99 has a basin size of 12
+Point 91 2 is a low.
+Point 91 2 has a basin size of 45
+Point 92 25 is a low.
+Point 92 25 has a basin size of 28
+Point 93 11 is a low.
+Point 93 11 has a basin size of 60
+Point 94 32 is a low.
+Point 94 32 has a basin size of 56
+Point 94 41 is a low.
+Point 94 41 has a basin size of 3
+Point 94 48 is a low.
+Point 94 48 has a basin size of 30
+Point 94 87 is a low.
+Point 94 87 has a basin size of 51
+Point 95 75 is a low.
+Point 95 75 has a basin size of 30
+Point 96 63 is a low.
+Point 96 63 has a basin size of 32
+Point 97 26 is a low.
+Point 97 26 has a basin size of 16
+Point 97 57 is a low.
+Point 97 57 has a basin size of 60
+Point 97 81 is a low.
+Point 97 81 has a basin size of 12
+Point 97 93 is a low.
+Point 97 93 has a basin size of 67
+Point 98 2 is a low.
+Point 98 2 has a basin size of 23
+Point 98 18 is a low.
+Point 98 18 has a basin size of 58
+Point 98 70 is a low.
+Point 98 70 has a basin size of 31
+Point 99 23 is a low.
+Point 99 23 has a basin size of 2
+Point 99 37 is a low.
+Point 99 37 has a basin size of 43
+Point 99 45 is a low.
+Point 99 45 has a basin size of 7
+Point 99 49 is a low.
+Point 99 49 has a basin size of 2
+Top three were 89, 88 and 88
+Total basin sum is 689216
