@@ -12,18 +12,24 @@ namespace day14
         }
 
         private static void Part2(string[] args) {
+            // Read the file, get the initial polymer string.
             var alllines = File.ReadAllLines(args[0]);
             var polymerStart = alllines[0];
-            Dictionary<string, string> rules = new Dictionary<string, string>();
 
+            // Read and parse the rules.
+            Dictionary<string, string> rules = new Dictionary<string, string>();
             for (int i = 2; i < alllines.Length; i++)
             {
                 var p = alllines[i].Split(new char[] { ' ', '-', '>' }, StringSplitOptions.RemoveEmptyEntries);
                 rules.Add(p[0], p[1]);
             }
 
+            // We'll pass the number of steps as an argument.
             int steps = int.Parse(args[1]);
 
+            // Split the original polymer string in to pairs of letters, so we can
+            // apply the rules.  If the same string appears more than once, we just
+            // count the strings we have.  Order doesn't seem to matter in the end.
             Dictionary<string,long> pairCounts = new Dictionary<string, long>();
             for(int i = 0; i < polymerStart.Length-1; i++) {
                 string pref = polymerStart.Substring(i,2);
@@ -33,54 +39,56 @@ namespace day14
                     pairCounts.Add(pref,1);
             }
 
+            // We'll keep a count of each letter as we go.
             var letterCounts = CountLettersInString(polymerStart);
 
+            // DO THE STEPS.
             for(int step = 0; step < steps; step++) {
 
-                // Do pair counts.
+                // We'll keep a dictionary of pairs, which will become the input
+                // to the next step.
                 var newPairCounts = new Dictionary<string,long>();
                 string pref = "";
-                bool correct = false;
                 char lastrulechar = ' ';
                 long lastrulecount = 0;
+
+                // So, let's go through each pair in the polymer.
                 foreach((string p, long c) in pairCounts) {
+
+                    // we'll label them pref and lastrulecount, which we might need later.
                     pref = p;
                     lastrulecount = c;
+
+                    // if the pair triggers a rule...
                     if (rules.ContainsKey(pref))
                     {
+                        // ... if we have, say, 8 lots of NN, and the rule insert a C between
+                        // them, then we create the new pairs NC and CN and add them to the
+                        // new dictionary of pair counts, increasing the count by 8 for each one.
                         string npref = $"{pref[0]}{rules[pref]}";
                         string ppref = $"{rules[pref]}{pref[1]}";
                         lastrulechar = rules[pref][0];
-                        correct = true;
-                        UpdatePairs(letterCounts, newPairCounts, lastrulechar, c, npref);
-                        UpdateCounts(letterCounts, newPairCounts, lastrulechar, c, npref);
-                        UpdatePairs(letterCounts, newPairCounts, lastrulechar, c, ppref);                        
-                    }
-                    else {
-                        correct = false;
-                        if (newPairCounts.ContainsKey(pref))
-                            newPairCounts[pref] += c;
-                        else newPairCounts[pref] = c;
-                    }
-                }
-                /*
-                if (correct) {
-                    string npref = $"{lastrulechar}{pref[1]}";
+                        UpdatePairs(newPairCounts, c, npref);
+                        UpdatePairs(newPairCounts, c, ppref);
 
-                    if (newPairCounts.ContainsKey(npref))
-                        newPairCounts[npref] += lastrulecount;
-                    else newPairCounts[npref] = lastrulecount;
-                    if (letterCounts.ContainsKey(lastrulechar))
-                        letterCounts[lastrulechar] += lastrulecount;
-                    else
-                        letterCounts[lastrulechar] = lastrulecount;
-                        
+                        // with our example, we'll also want to increase the letter counts for
+                        // C by 8 as well.  It's the only letter we've added, so that's all we add.
+                        UpdateCounts(letterCounts, newPairCounts, lastrulechar, c, npref);                        
+                    }
+
+                    // if no rule is triggered, then we just put it in the new list, as is.
+                    else {
+                        UpdatePairs(newPairCounts, c, pref);
+                    }
                 }
-                */
+
+                // Once we have done all pairs of letters in the old counts, we update pairCounts
+                // to the dictionary we've created in this step, ready for the next step.
                 pairCounts = newPairCounts;
 
             }
 
+            // Find the smallest and do some output with the results we need for the input.
             char smallest, largest;
             long smallestCount, largestCount;
             FindLargestSmallest(letterCounts, out smallest, out smallestCount, out largest, out largestCount);
@@ -91,13 +99,17 @@ namespace day14
 
         }
 
-        private static void UpdatePairs(Dictionary<char, long> letterCounts, Dictionary<string, long> newPairCounts, char lastrulechar, long c, string npref)
+        //
+        // Sure there's a way to do this in one line, but not sure how.
+        private static void UpdatePairs(Dictionary<string, long> newPairCounts, long c, string npref)
         {
             if (newPairCounts.ContainsKey(npref))
                 newPairCounts[npref] += c;
             else newPairCounts[npref] = c;
         }
 
+        //
+        // I'm sure you can do this in one line anyway, but not sure how.
         private static void UpdateCounts(Dictionary<char, long> letterCounts, Dictionary<string, long> newPairCounts, char lastrulechar, long c, string npref)
         {
             if (letterCounts.ContainsKey(lastrulechar))
@@ -107,6 +119,8 @@ namespace day14
         }
 
 
+        //
+        // Naive version of the algorithm.
         private static void Part1(string[] args)
         {
             var alllines = File.ReadAllLines(args[0]);
@@ -156,6 +170,9 @@ namespace day14
 
         }
 
+        //
+        // Given a dictionary of counts of chars, find the smallest counted char and the
+        // largest counted char.
         private static void FindLargestSmallest(Dictionary<char, long> counts, out char smallest, out long smallestCount, 
                                                                                out char largest, out long largestCount)
         {
@@ -178,6 +195,8 @@ namespace day14
             }
         }
 
+        //
+        // I'm sure there's a better way of doing this, but hey.
         private static Dictionary<char, long> CountLettersInString(string polymer)
         {
             Dictionary<char, long> counts = new Dictionary<char, long>();
