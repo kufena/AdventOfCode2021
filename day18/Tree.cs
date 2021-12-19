@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 namespace day18
 {
+
+    //
+    // A Tree is a Node with two branches, or a Leaf with an integer value.
+    // A Tree item knows its parent and depth.
+    // A Leaf has links to left and right adjacent leaf items so it can easily find them.
     public abstract class Tree {
         public abstract void print();
         public int depth {get; set;}
