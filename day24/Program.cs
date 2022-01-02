@@ -16,47 +16,96 @@ namespace day24
         static List<Func<(Dictionary<string,long>,Stack<long>),(Dictionary<string,long>,Stack<long>)>> code
                 = new List<Func<(Dictionary<string, long>, Stack<long>), (Dictionary<string, long>, Stack<long>)>>();
         static List<string> opaccs = new List<string>();
+        static long step = 1000000;
 
-        private static async void Part1(string[] args)
+        private static void Part1(string[] args)
         {
+            ThreadPool.SetMaxThreads(16,1);
+
             var alllines = File.ReadAllLines(args[0]);
             code = new List<Func<(Dictionary<string, long>, Stack<long>), (Dictionary<string, long>, Stack<long>)>>();
             opaccs = new List<string>();
 
+            string[] ops = new string[alllines.Length];
+            Arg[][] allargs = new Arg[alllines.Length][];
+            int q = 0;
             foreach(var s in alllines) {
                 string op;
                 var opargs = ParseLine(s, out op);
-                var f = Compile(op, opargs, opaccs);
-                code.Add(f);
+                ops[q] = op;
+                allargs[q] = opargs;
+                foreach(var a in opargs) {
+                    if (!a.literal && !opaccs.Contains(a.acc)) {
+                        opaccs.Add(a.acc);
+                    }
+                }
             }
 
-            long l = 100000000000000;
+            bool[] include = new bool[alllines.Length];
+            Dictionary<string, Probe> ans = new Dictionary<string, Probe>();
+            foreach(var s in opaccs) {
+                ans.Add(s, new Probe(true));
+            }
+
+            int ert = 0;
+            foreach(var s in alllines) {
+                string op;
+                var opargs = ParseLine(s, out op);
+                //if (Analyse(op, opargs, ans)) {
+                    var f = Compile(op, opargs, opaccs);
+                    code.Add(f);
+                    ert+=1;
+                //}
+            }
+            Console.WriteLine($"Started with {alllines.Length} lines, down to {count}");
+            Console.In.ReadLine();
+
+            long l = 99897039000000;
             while (l > 9999999999999) {
                 lock(lockObj){
                     count = 0;
                 }
 
                 ranges.Push(l);
-                ranges.Push(l-1000000);
-                ranges.Push(l-2000000);
-                ranges.Push(l-3000000);
-                ranges.Push(l-4000000);
-                ranges.Push(l-5000000);
-                ranges.Push(l-6000000);
-                ranges.Push(l-7000000);
-                l = l-8000000;
+                ranges.Push(l-step);
+                ranges.Push(l-(2*step));
+                ranges.Push(l-(3*step));
+                ranges.Push(l-(4*step));
+                ranges.Push(l-(5*step));
+                ranges.Push(l-(6*step));
+                ranges.Push(l-(7*step));
+                ranges.Push(l-(8*step));
+                ranges.Push(l-(9*step));
+                ranges.Push(l-(10*step));
+                ranges.Push(l-(11*step));
+                ranges.Push(l-(12*step));
+                ranges.Push(l-(13*step));
+                l = l-(14*step);
 
-                ThreadPool.QueueUserWorkItem(DoWork, null);
-                ThreadPool.QueueUserWorkItem(DoWork, null);
-                ThreadPool.QueueUserWorkItem(DoWork, null);
-                ThreadPool.QueueUserWorkItem(DoWork, null);
-                ThreadPool.QueueUserWorkItem(DoWork, null);
-                ThreadPool.QueueUserWorkItem(DoWork, null);
-                ThreadPool.QueueUserWorkItem(DoWork, null);
-                ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
+                //ThreadPool.QueueUserWorkItem(DoWork, null);
 
-                while (count < 8) 
-                    Thread.Sleep(50);
+                Task<bool>[] tasks = new Task<bool>[14];
+                for(int tt = 0; tt < 14; tt++)
+                    tasks[tt] = FindByWork();
+                
+                Console.WriteLine("14 new tasks started - waiting for them to end.");
+                Task.WaitAll(tasks);
+
+                //while (count < 14) 
+                //    Thread.Sleep(50);
 
                 if (found)
                     break;
@@ -76,8 +125,16 @@ namespace day24
                     foreach(var symb in opaccs)
                         accs.Add(symb,0);
                     
+                    int c = 0;
                     foreach(var func in code) {
+                        Console.In.ReadLine();
+                        foreach(var s in opaccs) {
+                            Console.Write($"{s} = {accs[s]} ");
+                        }
+                        Console.WriteLine("");
+                        Console.WriteLine($"{alllines[c]}");
                         func((accs, inputs));
+                        c++;
                     }
 
                     if (accs["z"] == 0) {
@@ -86,13 +143,13 @@ namespace day24
                     }
 
                     accs = new Dictionary<string, long>();
-                }
-            }
+                } 
+            } 
 
             foreach((string nm, long v) in accs) {
                 Console.Out.WriteLine($"{nm} = {v}");
-            }
-            */
+            } */
+            
         }
 
         private static Object lockObj = new Object();
@@ -102,11 +159,18 @@ namespace day24
 
         private static int count = 0;
 
+        private static Task<bool> FindByWork() {
+            return Task.Run( () => {
+                DoWork(null);
+                return true;
+            });
+        }
+
         private static void DoWork(Object stateinfo) { //long start, long end) {
             long start, end;
             lock(lockObj) {
                 start = ranges.Pop();
-                end = start - 1000000;
+                end = start - step;
             }
 
             Console.WriteLine($"Doing {start} to {end}");
@@ -126,6 +190,7 @@ namespace day24
                         func((accs, inputs));
                     }
 
+                    //Console.WriteLine($"Value is {k} z is {accs["z"]}");
                     if (accs["z"] == 0) {
                         Console.WriteLine($"Value is {k}");
                         lock(lockObj) {
@@ -140,6 +205,7 @@ namespace day24
                         }
                     }
 
+                    //k = k - (accs["z"] + 1);
                     accs = new Dictionary<string, long>();
                 }
             }
@@ -364,6 +430,55 @@ namespace day24
                 argsObj[i] = new Arg(args[i]);
             }
             return argsObj;
+        }
+
+        static bool Analyse(string op, Arg[] opargs, Dictionary<string, Probe> ans) {
+            string act = opargs[0].acc; // must be a literal.
+            switch (op) {
+                case "add": {
+                    if (opargs[1].literal && opargs[1].value == 0)
+                        return false;
+                    if (!opargs[1].literal && ans[opargs[1].acc].isZero)
+                        return false;
+                    
+                    if (ans[act].isZero) ans[act].isZero = false;
+                    return true;
+                }
+                case "mul": {
+                    if (ans[act].isZero)
+                        return false;
+                    if (!ans[act].isZero && opargs[1].literal && opargs[1].value == 0) {
+                        ans[act].isZero = true;
+                        return true;
+                    }
+                    if (!ans[act].isZero && !opargs[1].literal && ans[opargs[1].acc].isZero) {
+                        ans[act].isZero = true;
+                        return true;
+                    }
+
+                    return true;
+                    
+                }
+                case "div":
+                    if (ans[act].isZero)
+                        return false;
+                    if (opargs[0].literal && opargs[0].value == 1)
+                        return false;
+                    return true;
+                case "mod":
+                    if (ans[act].isZero)
+                        return false;
+                    return true;
+                case "eql":
+                    return true;
+                case "inp": {
+                    ans[act].isZero = false;
+                    return true;
+                }
+            }
+            ans[act].isZero = false;
+            return true;
+
         }
     }
 }
