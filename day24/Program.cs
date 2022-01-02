@@ -20,7 +20,8 @@ namespace day24
 
         private static void Part1(string[] args)
         {
-            ThreadPool.SetMaxThreads(16,1);
+            int threads = int.Parse(args[1]);
+            ThreadPool.SetMaxThreads(threads + 2,threads + 2);
 
             var alllines = File.ReadAllLines(args[0]);
             code = new List<Func<(Dictionary<string, long>, Stack<long>), (Dictionary<string, long>, Stack<long>)>>();
@@ -47,6 +48,7 @@ namespace day24
                 ans.Add(s, new Probe(true));
             }
 
+            int count = 0;
             int ert = 0;
             foreach(var s in alllines) {
                 string op;
@@ -58,131 +60,42 @@ namespace day24
                 //}
             }
             Console.WriteLine($"Started with {alllines.Length} lines, down to {count}");
-            Console.In.ReadLine();
+//            Console.In.ReadLine();
 
             long l = 99897039000000;
             while (l > 9999999999999) {
-                lock(lockObj){
-                    count = 0;
+
+                Task<bool>[] tasks = new Task<bool>[threads];
+                for(int tt = 0; tt < threads; tt++) {
+                    tasks[tt] = FindByWork(l, l-step);
+                    l -= step;
                 }
 
-                ranges.Push(l);
-                ranges.Push(l-step);
-                ranges.Push(l-(2*step));
-                ranges.Push(l-(3*step));
-                ranges.Push(l-(4*step));
-                ranges.Push(l-(5*step));
-                ranges.Push(l-(6*step));
-                ranges.Push(l-(7*step));
-                ranges.Push(l-(8*step));
-                ranges.Push(l-(9*step));
-                ranges.Push(l-(10*step));
-                ranges.Push(l-(11*step));
-                ranges.Push(l-(12*step));
-                ranges.Push(l-(13*step));
-                l = l-(14*step);
-
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-                //ThreadPool.QueueUserWorkItem(DoWork, null);
-
-                Task<bool>[] tasks = new Task<bool>[14];
-                for(int tt = 0; tt < 14; tt++)
-                    tasks[tt] = FindByWork();
-                
-                Console.WriteLine("14 new tasks started - waiting for them to end.");
-                Task.WaitAll(tasks);
-
-                //while (count < 14) 
-                //    Thread.Sleep(50);
-
-                if (found)
-                    break;
-            }
-/*
-            Stack<long> inputs = new Stack<long>();
-            Dictionary<string,long> accs = new Dictionary<string, long>();
-            for(long k = 100000000000000; k > 9999999999999; k--) {
-            
-                if (k % 1000000 == 0) Console.WriteLine($"k={k}");
-                if ( CreateStack(k, out inputs)) {
-                    //foreach(var s in alllines) {
-                    //    string op;
-                    //    var opargs = ParseLine(s, out op);
-                    //    Interpret(op, opargs, accs, inputs);
-                    //}
-                    foreach(var symb in opaccs)
-                        accs.Add(symb,0);
-                    
-                    int c = 0;
-                    foreach(var func in code) {
-                        Console.In.ReadLine();
-                        foreach(var s in opaccs) {
-                            Console.Write($"{s} = {accs[s]} ");
-                        }
-                        Console.WriteLine("");
-                        Console.WriteLine($"{alllines[c]}");
-                        func((accs, inputs));
-                        c++;
-                    }
-
-                    if (accs["z"] == 0) {
-                        Console.WriteLine($"Value is {k}");
+                foreach(var tt in tasks) {
+                    if (tt.IsCompletedSuccessfully && tt.Result)
                         break;
-                    }
+                }             
 
-                    accs = new Dictionary<string, long>();
-                } 
-            } 
+                Console.WriteLine($"{threads} new tasks started - waiting for them to end.");
+                Task.WaitAll(tasks);
+                Console.WriteLine("We've got some answers - press to continue...");
+                //Console.In.ReadLine();
 
-            foreach((string nm, long v) in accs) {
-                Console.Out.WriteLine($"{nm} = {v}");
-            } */
-            
+            }
         }
 
-        private static Object lockObj = new Object();
-        private static long value = 0;
-        private static bool found = false;
-        private static Stack<long> ranges = new Stack<long>();
-
-        private static int count = 0;
-
-        private static Task<bool> FindByWork() {
+        private static Task<bool> FindByWork(long start, long end) {
             return Task.Run( () => {
-                DoWork(null);
-                return true;
+                return DoWorkParameterized(start, end);
             });
         }
 
-        private static void DoWork(Object stateinfo) { //long start, long end) {
-            long start, end;
-            lock(lockObj) {
-                start = ranges.Pop();
-                end = start - step;
-            }
-
+        private static bool DoWorkParameterized(long start, long end) { //long start, long end) {
             Console.WriteLine($"Doing {start} to {end}");
             Stack<long> inputs = new Stack<long>();
             Dictionary<string,long> accs = new Dictionary<string, long>();
             for(long k = start; k > end; k--) {
                 if ( CreateStack(k, out inputs)) {
-                    //foreach(var s in alllines) {
-                    //    string op;
-                    //    var opargs = ParseLine(s, out op);
-                    //    Interpret(op, opargs, accs, inputs);
-                    //}
                     foreach(var symb in opaccs)
                         accs.Add(symb,0);
                     
@@ -193,25 +106,15 @@ namespace day24
                     //Console.WriteLine($"Value is {k} z is {accs["z"]}");
                     if (accs["z"] == 0) {
                         Console.WriteLine($"Value is {k}");
-                        lock(lockObj) {
-
-                            long v = accs["z"];
-                            if (v > value) {
-                                value = v;
-                                found = true;
-                            }
-                            count += 1;
-                            return;
-                        }
+                        return true;
+                    
                     }
 
                     //k = k - (accs["z"] + 1);
                     accs = new Dictionary<string, long>();
                 }
             }
-            lock(lockObj) {
-                count += 1;
-            }
+            return false;
         }
 
         private static bool CreateStack(long k, out Stack<long> inputs)
